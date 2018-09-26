@@ -53,7 +53,8 @@
     },
     "config": {
         "platform": {
-            "php": "7.2"
+            "php": "7.2",
+            "ext-mongo": "1.6.16"
         },
         "sort-packages": true
     },
