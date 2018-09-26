@@ -24,7 +24,6 @@ class DefaultController extends Controller
      */
     public function homeAction()
     {
-
         $restaurants = $this->get('doctrine_mongodb')->getManager()->getRepository('AppBundle:Restaurant')->findTenOrderedByGrade();
 
         return $this->render('default/home.html.twig', [
