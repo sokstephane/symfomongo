@@ -1,0 +1,119 @@
+<?php
+
+namespace AppBundle\Document;
+
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+
+/**
+ * @MongoDB\Document(db="SymfoMongo", collection="SymfoMongo")
+ */
+class Restaurant
+{
+    /**
+     * @MongoDB\Id
+     */
+    protected $id;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $serial_number;
+
+    /**
+     * @MongoDB\Field(type="date")
+     */
+    protected $activityDate;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $facilityName;
+
+    /**
+     * @MongoDB\Field(type="int")
+     */
+    protected $score;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $grade;
+
+    /**
+     * @MongoDB\Field(type="int")
+     */
+    protected $serviceCode;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $serviceDescription;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $employeeId;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $facilityId;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $facilityAddress;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $facilityCity;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $facilityState;
+
+    /**
+     * @MongoDB\Field(type="int")
+     */
+    protected $facilityZip;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $ownerId;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $ownerName;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $peDescription;
+
+    /**
+     * @MongoDB\Field(type="int")
+     */
+    protected $programElementPe;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $programName;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $programStatus;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $recordId;
+
+
+
+}
