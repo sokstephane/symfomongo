@@ -5,7 +5,10 @@ namespace AppBundle\Document;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
 /**
- * @MongoDB\Document(db="SymfoMongo", collection="SymfoMongo")
+ * @MongoDB\Document(
+ *     db="SymfoMongo", collection="SymfoMongo",
+ *     repositoryClass="AppBundle\Repository\RestaurantRepository"
+ * )
  */
 class Restaurant
 {
@@ -22,12 +25,12 @@ class Restaurant
     /**
      * @MongoDB\Field(type="date")
      */
-    protected $activityDate;
+    protected $activity_date;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $facilityName;
+    protected $facility_name;
 
     /**
      * @MongoDB\Field(type="int")
@@ -42,77 +45,79 @@ class Restaurant
     /**
      * @MongoDB\Field(type="int")
      */
-    protected $serviceCode;
+    protected $service_code;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $serviceDescription;
+    protected $service_description;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $employeeId;
+    protected $employee_id;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $facilityId;
+    protected $facility_id;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $facilityAddress;
+    protected $facility_address;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $facilityCity;
+    protected $facility_city;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $facilityState;
+    protected $facility_state;
 
     /**
      * @MongoDB\Field(type="int")
      */
-    protected $facilityZip;
+    protected $facility_zip;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $ownerId;
+    protected $owner_id;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $ownerName;
+    protected $owner_name;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $peDescription;
+    protected $pe_description;
 
     /**
      * @MongoDB\Field(type="int")
      */
-    protected $programElementPe;
+    protected $program_element_pe;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $programName;
+    protected $program_name;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $programStatus;
+    protected $program_status;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $recordId;
+    protected $record_id;
+
+
 
     /**
      * Get id
@@ -154,7 +159,7 @@ class Restaurant
      */
     public function setActivityDate($activityDate)
     {
-        $this->activityDate = $activityDate;
+        $this->activity_date = $activityDate;
         return $this;
     }
 
@@ -165,7 +170,7 @@ class Restaurant
      */
     public function getActivityDate()
     {
-        return $this->activityDate;
+        return $this->activity_date;
     }
 
     /**
@@ -176,7 +181,7 @@ class Restaurant
      */
     public function setFacilityName($facilityName)
     {
-        $this->facilityName = $facilityName;
+        $this->facility_name = $facilityName;
         return $this;
     }
 
@@ -187,7 +192,7 @@ class Restaurant
      */
     public function getFacilityName()
     {
-        return $this->facilityName;
+        return $this->facility_name;
     }
 
     /**
@@ -242,7 +247,7 @@ class Restaurant
      */
     public function setServiceCode($serviceCode)
     {
-        $this->serviceCode = $serviceCode;
+        $this->service_code = $serviceCode;
         return $this;
     }
 
@@ -253,7 +258,7 @@ class Restaurant
      */
     public function getServiceCode()
     {
-        return $this->serviceCode;
+        return $this->service_code;
     }
 
     /**
@@ -264,7 +269,7 @@ class Restaurant
      */
     public function setServiceDescription($serviceDescription)
     {
-        $this->serviceDescription = $serviceDescription;
+        $this->service_description = $serviceDescription;
         return $this;
     }
 
@@ -275,7 +280,7 @@ class Restaurant
      */
     public function getServiceDescription()
     {
-        return $this->serviceDescription;
+        return $this->service_description;
     }
 
     /**
@@ -286,7 +291,7 @@ class Restaurant
      */
     public function setEmployeeId($employeeId)
     {
-        $this->employeeId = $employeeId;
+        $this->employee_id = $employeeId;
         return $this;
     }
 
@@ -297,7 +302,7 @@ class Restaurant
      */
     public function getEmployeeId()
     {
-        return $this->employeeId;
+        return $this->employee_id;
     }
 
     /**
@@ -308,7 +313,7 @@ class Restaurant
      */
     public function setFacilityId($facilityId)
     {
-        $this->facilityId = $facilityId;
+        $this->facility_id = $facilityId;
         return $this;
     }
 
@@ -319,7 +324,7 @@ class Restaurant
      */
     public function getFacilityId()
     {
-        return $this->facilityId;
+        return $this->facility_id;
     }
 
     /**
@@ -330,7 +335,7 @@ class Restaurant
      */
     public function setFacilityAddress($facilityAddress)
     {
-        $this->facilityAddress = $facilityAddress;
+        $this->facility_address = $facilityAddress;
         return $this;
     }
 
@@ -341,7 +346,7 @@ class Restaurant
      */
     public function getFacilityAddress()
     {
-        return $this->facilityAddress;
+        return $this->facility_address;
     }
 
     /**
@@ -352,7 +357,7 @@ class Restaurant
      */
     public function setFacilityCity($facilityCity)
     {
-        $this->facilityCity = $facilityCity;
+        $this->facility_city = $facilityCity;
         return $this;
     }
 
@@ -363,7 +368,7 @@ class Restaurant
      */
     public function getFacilityCity()
     {
-        return $this->facilityCity;
+        return $this->facility_city;
     }
 
     /**
@@ -374,7 +379,7 @@ class Restaurant
      */
     public function setFacilityState($facilityState)
     {
-        $this->facilityState = $facilityState;
+        $this->facility_state = $facilityState;
         return $this;
     }
 
@@ -385,7 +390,7 @@ class Restaurant
      */
     public function getFacilityState()
     {
-        return $this->facilityState;
+        return $this->facility_state;
     }
 
     /**
@@ -396,7 +401,7 @@ class Restaurant
      */
     public function setFacilityZip($facilityZip)
     {
-        $this->facilityZip = $facilityZip;
+        $this->facility_zip = $facilityZip;
         return $this;
     }
 
@@ -407,7 +412,7 @@ class Restaurant
      */
     public function getFacilityZip()
     {
-        return $this->facilityZip;
+        return $this->facility_zip;
     }
 
     /**
@@ -418,7 +423,7 @@ class Restaurant
      */
     public function setOwnerId($ownerId)
     {
-        $this->ownerId = $ownerId;
+        $this->owner_id = $ownerId;
         return $this;
     }
 
@@ -429,7 +434,7 @@ class Restaurant
      */
     public function getOwnerId()
     {
-        return $this->ownerId;
+        return $this->owner_id;
     }
 
     /**
@@ -440,7 +445,7 @@ class Restaurant
      */
     public function setOwnerName($ownerName)
     {
-        $this->ownerName = $ownerName;
+        $this->owner_name = $ownerName;
         return $this;
     }
 
@@ -451,7 +456,7 @@ class Restaurant
      */
     public function getOwnerName()
     {
-        return $this->ownerName;
+        return $this->owner_name;
     }
 
     /**
@@ -462,7 +467,7 @@ class Restaurant
      */
     public function setPeDescription($peDescription)
     {
-        $this->peDescription = $peDescription;
+        $this->pe_description = $peDescription;
         return $this;
     }
 
@@ -473,7 +478,7 @@ class Restaurant
      */
     public function getPeDescription()
     {
-        return $this->peDescription;
+        return $this->pe_description;
     }
 
     /**
@@ -484,7 +489,7 @@ class Restaurant
      */
     public function setProgramElementPe($programElementPe)
     {
-        $this->programElementPe = $programElementPe;
+        $this->program_element_pe = $programElementPe;
         return $this;
     }
 
@@ -495,7 +500,7 @@ class Restaurant
      */
     public function getProgramElementPe()
     {
-        return $this->programElementPe;
+        return $this->program_element_pe;
     }
 
     /**
@@ -506,7 +511,7 @@ class Restaurant
      */
     public function setProgramName($programName)
     {
-        $this->programName = $programName;
+        $this->program_name = $programName;
         return $this;
     }
 
@@ -517,7 +522,7 @@ class Restaurant
      */
     public function getProgramName()
     {
-        return $this->programName;
+        return $this->program_name;
     }
 
     /**
@@ -528,7 +533,7 @@ class Restaurant
      */
     public function setProgramStatus($programStatus)
     {
-        $this->programStatus = $programStatus;
+        $this->program_status = $programStatus;
         return $this;
     }
 
@@ -539,7 +544,7 @@ class Restaurant
      */
     public function getProgramStatus()
     {
-        return $this->programStatus;
+        return $this->program_status;
     }
 
     /**
@@ -550,7 +555,7 @@ class Restaurant
      */
     public function setRecordId($recordId)
     {
-        $this->recordId = $recordId;
+        $this->record_id = $recordId;
         return $this;
     }
 
@@ -561,6 +566,6 @@ class Restaurant
      */
     public function getRecordId()
     {
-        return $this->recordId;
+        return $this->record_id;
     }
 }

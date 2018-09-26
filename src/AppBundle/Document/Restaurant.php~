@@ -5,7 +5,10 @@ namespace AppBundle\Document;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
 /**
- * @MongoDB\Document(db="SymfoMongo", collection="SymfoMongo")
+ * @MongoDB\Document(
+ *     db="SymfoMongo", collection="SymfoMongo",
+ *     repositoryClass="AppBundle\Repository\RestaurantRepository"
+ * )
  */
 class Restaurant
 {
@@ -22,12 +25,12 @@ class Restaurant
     /**
      * @MongoDB\Field(type="date")
      */
-    protected $activityDate;
+    protected $activity_date;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $facilityName;
+    protected $facility_name;
 
     /**
      * @MongoDB\Field(type="int")
@@ -42,78 +45,77 @@ class Restaurant
     /**
      * @MongoDB\Field(type="int")
      */
-    protected $serviceCode;
+    protected $service_code;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $serviceDescription;
+    protected $service_description;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $employeeId;
+    protected $employee_id;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $facilityId;
+    protected $facility_id;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $facilityAddress;
+    protected $facility_address;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $facilityCity;
+    protected $facility_city;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $facilityState;
+    protected $facility_state;
 
     /**
      * @MongoDB\Field(type="int")
      */
-    protected $facilityZip;
+    protected $facility_zip;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $ownerId;
+    protected $owner_id;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $ownerName;
+    protected $owner_name;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $peDescription;
+    protected $pe_description;
 
     /**
      * @MongoDB\Field(type="int")
      */
-    protected $programElementPe;
+    protected $program_element_pe;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $programName;
+    protected $program_name;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $programStatus;
+    protected $program_status;
 
     /**
      * @MongoDB\Field(type="string")
      */
-    protected $recordId;
-
+    protected $record_id;
 
 
 }

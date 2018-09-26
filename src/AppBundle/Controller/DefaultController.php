@@ -22,10 +22,13 @@ class DefaultController extends Controller
     /**
      * @Route("/home", name="home")
      */
-    public function homeAction(Request $request)
+    public function homeAction()
     {
-        // replace this example code with whatever you need
+
+        $restaurants = $this->get('doctrine_mongodb')->getManager()->getRepository('AppBundle:Restaurant')->findTenOrderedByGrade();
+
         return $this->render('default/home.html.twig', [
+            'restaurants' => $restaurants,
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
