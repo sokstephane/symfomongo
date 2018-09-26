@@ -11,44 +11,22 @@
         <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
     </div>
     <div class="container">
-        <h4>Les tendances</h4>
+        <h4>Les 6 restaurants les mieux notés de LA </h4>
         <div class="row">
-            {% for i in 0..2 %}
+            {% for restaurant in restaurants %}
                 <ul class="grid cs-style-1">
                     <li>
                         <figure>
                             <img src="/build/img/1.png" alt="" style="border-radius:2%;">
                             <figcaption style="z-index:2">
-                                <h3 class="truncate">Habitat Coffee Shop, Los Angeles</h3>
-                                <span>Score , Rang</span>
-                                <span>Jacob Cummings</span>
+                                <h3 class="truncate">{{ restaurant.facilityName }}, {{ restaurant.facilityCity }}</h3>
+                                <span>{{ restaurant.score }}, {{ restaurant.grade }}</span>
+                                <span>{{ restaurant.peDescription }}</span>
                                 <a href="http://dribbble.com/shots/1115632-Camera">Voir plus</a>
                             </figcaption>
                         </figure>
                         <div class="figui">
-                            <span>Habitat Coffee Shop, Los Angeles</span>
-                        </div>
-                    </li>
-                </ul>
-            {% endfor %}
-        </div>
-
-        <h4>Les tendances</h4>
-        <div class="row">
-            {% for i in 0..2 %}
-                <ul class="grid cs-style-1">
-                    <li>
-                        <figure>
-                            <img src="/build/img/1.png" alt="" style="border-radius:2%;">
-                            <figcaption style="z-index:2">
-                                <h3 class="truncate">Habitat Coffee Shop, Los Angeles</h3>
-                                <span>Score , Rang</span>
-                                <span>Jacob Cummings</span>
-                                <a href="http://dribbble.com/shots/1115632-Camera">Voir plus</a>
-                            </figcaption>
-                        </figure>
-                        <div class="figui"  >
-                            <span>Habitat Coffee Shop, Los Angeles</span>
+                            <span>{{ restaurant.facilityName }}, {{ restaurant.facilityCity }}</span>
                         </div>
                     </li>
                 </ul>

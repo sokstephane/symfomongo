@@ -17,12 +17,36 @@ class RestaurantRepository extends DocumentRepository
     {
         try {
             return $this->createQueryBuilder()
-                ->sort('grade', 'ASC')
-                ->limit(10)
+                ->sort('score', 'DESC')
+                ->limit(6)
 
                 ->getQuery()
                 ->execute();
         } catch (MongoDBException $e) {
         }
     }
+
+    public function countGrade($grade)
+    {
+        try {
+            return $this->createQueryBuilder()
+                ->field('grade')->equals($grade)
+                ->getQuery()->execute()->count();
+        } catch (MongoDBException $e) {
+        }
+    }
+
+    public function countScore($score)
+    {
+        try {
+            return $this->createQueryBuilder()
+                ->field('score')->equals($score)
+                ->getQuery()->execute()->count();
+        } catch (MongoDBException $e) {
+        }
+    }
+
+
+
+
 }
