@@ -22,7 +22,7 @@
                                 <h3 class="truncate">{{ restaurant.facilityName }}, {{ restaurant.facilityCity }}</h3>
                                 <span>{{ restaurant.score }}, {{ restaurant.grade }}</span>
                                 <span>{{ restaurant.peDescription }}</span>
-                                <a href="http://dribbble.com/shots/1115632-Camera">Voir plus</a>
+                                <a href="{{ path('single_restaurant', { 'id': restaurant.id }) }}">Voir plus</a>
                             </figcaption>
                         </figure>
                         <div class="figui">

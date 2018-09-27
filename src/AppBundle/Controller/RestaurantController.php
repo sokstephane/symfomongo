@@ -2,9 +2,11 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Document\Restaurant;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 /**
  * Class RestaurantController
@@ -14,15 +16,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class RestaurantController extends Controller
 {
     /**
-     * @Route("/rest", name="single_restaurant")
+     * @Route("/{id}", name="single_restaurant")
      */
-    public function indexAction(Request $request)
+    public function indexAction(Request $request, $id)
     {
 
-//        $restaurant = $this->get('doctrine_mongodb')->getManager()->getRepository('AppBundle:Restaurant')->findById($id);
+        $restaurant = $this->get('doctrine_mongodb')->getManager()->getRepository('AppBundle:Restaurant')->findById($id);
 
         return $this->render('restaurant/index.html.twig', [
-//            'restaurant' => $restaurant,
+            'restaurant' => $restaurant,
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
