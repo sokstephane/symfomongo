@@ -25,7 +25,7 @@ class DefaultController extends Controller
      */
     public function homeAction()
     {
-        $restaurants = $this->get('doctrine_mongodb')->getManager()->getRepository('AppBundle:Restaurant')->findTenOrderedByGrade();
+        $restaurants = $this->get('doctrine_mongodb')->getManager()->getRepository('AppBundle:Restaurant')->findLimitedOrderedByGrade();
         $allRestaurants = $this->get('doctrine_mongodb')->getManager()->getRepository('AppBundle:Restaurant')->findAll();
 
         $grades = [];

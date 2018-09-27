@@ -13,7 +13,7 @@ use Doctrine\ODM\MongoDB\MongoDBException;
  */
 class RestaurantRepository extends DocumentRepository
 {
-    public function findTenOrderedByGrade()
+    public function findLimitedOrderedByGrade()
     {
         try {
             return $this->createQueryBuilder()
