@@ -3,16 +3,42 @@
 
 {% block body %}
     {% include 'default/navbar.html.twig' %}
-    {% set scores = countScore %}
-    <h4>Statistiques des différents restaurants</h4>
-    <div class="col-md-6" id="scoreStats" data-scores="{{ scores|join(', ') }}">
-        <div id="chart_div" style="width: 900px; height: 500px;"></div>
+    <div class="container">
+        <h4 style="padding-top:20px;">Statistiques des différents restaurants</h4>
+        <div class="col-md-6" id="scoreStats">
+            <div id="chart_div" style="width: 900px; height: 500px;"
+                 data-100="{{ countScore["count 100"] }}"
+                 data-99="{{ countScore["count 99"] }}"
+                 data-98="{{ countScore["count 98"] }}"
+                 data-97="{{ countScore["count 97"] }}"
+                 data-96="{{ countScore["count 96"] }}"
+                 data-95="{{ countScore["count 95"] }}"
+                 data-94="{{ countScore["count 94"] }}"
+                 data-89="{{ countScore["count 89"] }}"
+                 data-88="{{ countScore["count 88"] }}"
+                 data-87="{{ countScore["count 87"] }}"
+                 data-86="{{ countScore["count 86"] }}"
+                 data-85="{{ countScore["count 85"] }}"
+                 data-84="{{ countScore["count 84"] }}"
+                 data-83="{{ countScore["count 83"] }}"
+                 data-82="{{ countScore["count 82"] }}"
+                 data-80="{{ countScore["count 80"] }}"
+                 data-78="{{ countScore["count 78"] }}"
+                 data-77="{{ countScore["count 77"] }}"
+                 data-76="{{ countScore["count 76"] }}"
+                 data-74="{{ countScore["count 74"] }}"
+                 data-73="{{ countScore["count 73"] }}"
+                 data-71="{{ countScore["count 71"] }}"
+                 data-68="{{ countScore["count 68"] }}"
+                 data-67="{{ countScore["count 67"] }}"
+                 data-65="{{ countScore["count 65"] }}"
+                 data-64="{{ countScore["count 64"] }}"
+            ></div>
+        </div>
+        <div id="gradeStats" class="col-md-6" data-grade-A="{{ countGrade["count A"] }}" data-grade-B="{{ countGrade["count B"] }}" data-grade-C="{{ countGrade["count C"] }}">
+            <div id="piechart" style="width: 900px; height: 500px;"></div>
+        </div>
     </div>
-    <div id="gradeStats" class="col-md-6" data-grade-A="{{ countGrade["count A"] }}" data-grade-B="{{ countGrade["count B"] }}" data-grade-C="{{ countGrade["count C"] }}">
-        <div id="piechart" style="width: 900px; height: 500px;"></div>
-    </div>
-
-
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         google.charts.load("current", {packages:["corechart"]});
@@ -38,47 +64,30 @@
         //Histo Chart
         function drawChart2() {
 
-            var scoreData = $('#scoreStats').data("scores");
-            console.log(scoreData);
+            var scoreDiv = $('#chart_div');
 
             var data2 = google.visualization.arrayToDataTable([
-                ['Dinosaur', 'Length'],
-                ['Acrocanthosaurus (top-spined lizard)', 12.2],
-                ['Albertosaurus (Alberta lizard)', 9.1],
-                ['Allosaurus (other lizard)', 12.2],
-                ['Apatosaurus (deceptive lizard)', 22.9],
-                ['Archaeopteryx (ancient wing)', 0.9],
-                ['Argentinosaurus (Argentina lizard)', 36.6],
-                ['Baryonyx (heavy claws)', 9.1],
-                ['Brachiosaurus (arm lizard)', 30.5],
-                ['Ceratosaurus (horned lizard)', 6.1],
-                ['Coelophysis (hollow form)', 2.7],
-                ['Compsognathus (elegant jaw)', 0.9],
-                ['Deinonychus (terrible claw)', 2.7],
-                ['Diplodocus (double beam)', 27.1],
-                ['Dromicelomimus (emu mimic)', 3.4],
-                ['Gallimimus (fowl mimic)', 5.5],
-                ['Mamenchisaurus (Mamenchi lizard)', 21.0],
-                ['Megalosaurus (big lizard)', 7.9],
-                ['Microvenator (small hunter)', 1.2],
-                ['Ornithomimus (bird mimic)', 4.6],
-                ['Oviraptor (egg robber)', 1.5],
-                ['Plateosaurus (flat lizard)', 7.9],
-                ['Sauronithoides (narrow-clawed lizard)', 2.0],
-                ['Seismosaurus (tremor lizard)', 45.7],
-                ['Spinosaurus (spiny lizard)', 12.2],
-                ['Supersaurus (super lizard)', 30.5],
-                ['Tyrannosaurus (tyrant lizard)', 15.2],
-                ['Ultrasaurus (ultra lizard)', 30.5],
-                ['Velociraptor (swift robber)', 1.8]]);
+                ['X', 'Nombre de restaurants avec cette note'],
+                ['100', scoreDiv.data("100")],
+                ['98', scoreDiv.data("98")],
+                ['96', scoreDiv.data("96")],
+                ['95', scoreDiv.data("95")],
+                ['94', scoreDiv.data("94")],
+                ['89', scoreDiv.data("89")],
+                ['88', scoreDiv.data("88")],
+                ['87', scoreDiv.data("87")],
+                ['84', scoreDiv.data("84")],
+                ['82', scoreDiv.data("82")],
+                ['77', scoreDiv.data("77")],
+                ['76', scoreDiv.data("76")],
+                ['68', scoreDiv.data("68")],
+                ['65', scoreDiv.data("65")],
+                ['64', scoreDiv.data("64")],
+            ]);
             var options2 = {
-                title: 'Scores des meilleurs restaurants',
-                legend: { position: 'none' },
-                colors: ['#e7711c'],
-                histogram: { lastBucketPercentile: 5 },
-                vAxis: { scaleType: 'mirrorLog' }
+                title: 'Scores des meilleurs restaurants de Los Angeles',
             };
-            var chart2 = new google.visualization.Histogram(document.getElementById('chart_div'));
+            var chart2 = new google.visualization.LineChart(document.getElementById('chart_div'));
             chart2.draw(data2, options2);
         }
     </script>

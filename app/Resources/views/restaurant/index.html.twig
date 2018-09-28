@@ -16,6 +16,10 @@
                 <div class="progress">
                     <div class="progress-bar" role="progressbar" style="width:25%;" aria-valuenow="{{ restaurant[0].score }}" aria-valuemin="0" aria-valuemax="100">{{ restaurant[0].score }} / 100</div>
                 </div>
+                <h4>Adresse :</h4>
+                <div>
+                    <p>{{ restaurant[0].facilityAddress }}  {{ restaurant[0].facilityCity }}</p>
+                </div>
                 {#<a class="btn btn-primary btn-lg" href="#" role="button">Réservez</a>#}
             </div>
             <div class="col-md-5">
