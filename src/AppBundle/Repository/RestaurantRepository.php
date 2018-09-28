@@ -26,6 +26,30 @@ class RestaurantRepository extends DocumentRepository
         }
     }
 
+    public function findLimitedOrderedByGradeAsc()
+    {
+        try {
+            return $this->createQueryBuilder()
+                ->sort('score', 'ASC')
+                ->limit(6)
+
+                ->getQuery()
+                ->execute();
+        } catch (MongoDBException $e) {
+        }
+    }
+
+    public function findAllLimited()
+    {
+        try {
+            return $this->createQueryBuilder()
+                ->limit(1000)
+                ->getQuery()
+                ->execute();
+        } catch (MongoDBException $e) {
+        }
+    }
+
     public function countGrade($grade)
     {
         try {

@@ -31,10 +31,26 @@
                 </ul>
             {% endfor %}
         </div>
+        <h4>Les 6 restaurants les moins populaires de LA </h4>
         <div class="row">
-            <div class="col-md-12">
-                <h4 style="text-align:center;position:relative">Voir tous les restaurants</h4>
-            </div>
+            {% for restaurant in lowerRestaurants %}
+                <ul class="grid cs-style-1">
+                    <li>
+                        <figure>
+                            <img src="/build/img/{{ random(17) }}.jpg" alt="Image Restau" style="border-radius:2%;width:300px;height:200px">
+                            <figcaption style="z-index:2">
+                                <h3 class="truncate">{{ restaurant.facilityName }}, {{ restaurant.facilityCity }}</h3>
+                                <span>{{ restaurant.score }}, {{ restaurant.grade }}</span>
+                                <span>{{ restaurant.peDescription }}</span>
+                                <a href="{{ path('single_restaurant', { 'id': restaurant.id }) }}">Voir plus</a>
+                            </figcaption>
+                        </figure>
+                        <div class="figui">
+                            <span>{{ restaurant.facilityName }}, {{ restaurant.facilityCity }}</span>
+                        </div>
+                    </li>
+                </ul>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

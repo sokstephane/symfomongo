@@ -26,9 +26,11 @@ class DefaultController extends Controller
     public function homeAction()
     {
         $restaurants = $this->get('doctrine_mongodb')->getManager()->getRepository('AppBundle:Restaurant')->findLimitedOrderedByGrade();
+        $lowerRestaurants = $this->get('doctrine_mongodb')->getManager()->getRepository('AppBundle:Restaurant')->findLimitedOrderedByGradeAsc();
 
         return $this->render('default/home.html.twig', [
             'restaurants' => $restaurants,
+            'lowerRestaurants' => $lowerRestaurants,
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
@@ -66,6 +68,20 @@ class DefaultController extends Controller
             'restaurants' => $restaurants,
             'countGrade' => $countGrade,
             'countScore' => $countScore,
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+        ]);
+    }
+
+    /**
+     * @Route("/restaurants/all", name="restaurants_all")
+     */
+    public function findAllRestaurantsAction()
+    {
+
+        $restaurants = $this->get('doctrine_mongodb')->getManager()->getRepository('AppBundle:Restaurant')->findAllLimited();
+
+        return $this->render('default/all.html.twig', [
+            'restaurants' => $restaurants,
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
