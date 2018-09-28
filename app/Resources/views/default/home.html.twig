@@ -3,25 +3,31 @@
 {% block body %}
 {% include 'default/navbar.html.twig' %}
 <div class="jumbotron" style="background: linear-gradient(to left, #3F1CCB, #4872AE 50%, #BF5858 75%);color:white;">
-  <h1 class="display-4">Welcome !</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <h1 class="display-4">Bienvenu sur Restau Like !</h1>
+  <p class="lead">Les meilleurs restaurants et leurs adresses sont disponible ici !</p>
   <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  <p>Allez voir les dernieres infos en scrollant vers le bas !</p>
 </div>
 <div class="container">
-  <h4>Les tendances</h4>
+  <div class="row">
+    <div class="col-md-6">
+      <h4>Les tendances</h4>
+    </div>
+    <div class="col-md-6">
+      <h6 style="float:right;position:relative">Voir tout</h6>
+    </div>
+  </div>
   <div class="row">
     {% for i in 0..2 %}
     <ul class="grid cs-style-1">
       <li>
         <figure>
-          <img src="/build/img/1.png" alt="" style="border-radius:2%;">
+          <img src="/build/img/{{ random(17) }}.jpg" alt="Image Restau" style="border-radius:2%;width:300px;height:200px">
           <figcaption style="z-index:2">
             <h3 class="truncate">Habitat Coffee Shop, Los Angeles</h3>
             <span>Score , Rang</span>
             <span>Jacob Cummings</span>
-            <a href="http://dribbble.com/shots/1115632-Camera">Voir plus</a>
+            <a href="http://127.0.0.1:8000/restaurant/rest">Voir plus</a>
           </figcaption>
         </figure>
         <div class="figui">
@@ -32,18 +38,25 @@
     {% endfor %}
   </div>
 
-  <h4>Les tendances</h4>
+  <div class="row">
+    <div class="col-md-6">
+      <h4>Autres</h4>
+    </div>
+    <div class="col-md-6">
+      <h6 style="float:right;position:relative">Voir tout</h6>
+    </div>
+  </div>
   <div class="row">
     {% for i in 0..2 %}
     <ul class="grid cs-style-1">
       <li>
         <figure>
-          <img src="/build/img/1.png" alt="" style="border-radius:2%;">
+          <img src="/build/img/{{ random(17) }}.jpg" alt="Image Restau" style="border-radius:2%;width:300px;height:200px">
           <figcaption style="z-index:2">
             <h3 class="truncate">Habitat Coffee Shop, Los Angeles</h3>
             <span>Score , Rang</span>
             <span>Jacob Cummings</span>
-            <a href="http://dribbble.com/shots/1115632-Camera">Voir plus</a>
+            <a href="http://127.0.0.1:8000/restaurant/rest">Voir plus</a>
           </figcaption>
         </figure>
         <div class="figui"  >
