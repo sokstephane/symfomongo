@@ -20,7 +20,7 @@
                 </div>
                 <div>
                 </div>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Réservez</a>
+                {#<a class="btn btn-primary btn-lg" href="#" role="button">Réservez</a>#}
             </div>
             <div class="col-md-5">
                 <img src="/build/img/{{ random(17) }}.jpg" alt="Image Restau" style="border-radius:2%;width:100%;height:100%;">
@@ -29,7 +29,7 @@
     </div>
     <div class="container">
     <h4>Voir le plan</h4>
-    {#<div id="map" data-address="{{ restaurant[0].facilityAddress }}"></div>#}
+    <div id="map" data-address="{{ restaurant[0].facilityAddress }}"></div>
     <script>
         function geocodeAddress(geocoder, resultsMap) {
             var address = $('#map').data("address");
