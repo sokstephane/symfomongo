@@ -29,6 +29,35 @@ class DefaultController extends Controller
         $allRestaurants = $this->get('doctrine_mongodb')->getManager()->getRepository('AppBundle:Restaurant')->findAll();
 
         $grades = [];
+        $countGrade = [];
+
+        foreach ($allRestaurants as $restaurant) {
+
+            $grade = $restaurant->getGrade();
+
+            if (!in_array($grade, $grades)) {
+                $grades[] = $grade;
+                $countGrade[$grade] = $grade;
+                $countGrade["count " . $grade] = $this->get('doctrine_mongodb')->getManager()->getRepository('AppBundle:Restaurant')->countGrade($grade);
+            }
+        }
+
+        return $this->render('default/home.html.twig', [
+            'restaurants' => $restaurants,
+            'countGrade' => $countGrade,
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+        ]);
+    }
+
+    /**
+     * @Route("/statistics", name="statistics")
+     */
+    public function statisticsAction(Request $request)
+    {
+        $restaurants = $this->get('doctrine_mongodb')->getManager()->getRepository('AppBundle:Restaurant')->findLimitedOrderedByGrade();
+        $allRestaurants = $this->get('doctrine_mongodb')->getManager()->getRepository('AppBundle:Restaurant')->findAll();
+
+        $grades = [];
         $scores = [];
         $countGrade = [];
 
@@ -49,7 +78,7 @@ class DefaultController extends Controller
             }
         }
 
-        return $this->render('default/home.html.twig', [
+        return $this->render('default/statistics.html.twig', [
             'restaurants' => $restaurants,
             'countGrade' => $countGrade,
             'countScore' => $countScore,

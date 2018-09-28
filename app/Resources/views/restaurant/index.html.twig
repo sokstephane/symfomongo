@@ -1,6 +1,30 @@
 {% extends 'base.html.twig' %}
-
 {% block body %}
+    {% include 'default/navbar.html.twig' %}
+
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-7">
+                <h1 class="display-4">Restaurant : {{ restaurant[0].facilityName }}</h1>
+                <p class="lead">Description : {{ restaurant[0].peDescription }}</p>
+                <hr class="my-4">
+                <button type="button" class="btn" style="background-color:#E0661C;color:white">
+                    Grade <span class="badge badge-light">A</span>
+                    <span class="sr-only">unread messages</span>
+                </button>
+                <h4 style="padding-top:10px;">NOTE</h4>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width:25%;" aria-valuenow="{{ restaurant[0].score }}" aria-valuemin="0" aria-valuemax="100">{{ restaurant[0].score }} / 100</div>
+                </div>
+                {#<a class="btn btn-primary btn-lg" href="#" role="button">Réservez</a>#}
+            </div>
+            <div class="col-md-5">
+                <img src="/build/img/{{ random(17) }}.jpg" alt="Image Restau" style="border-radius:2%;width:100%;height:100%;">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+    <h4>Voir le plan</h4>
     <div id="map" data-address="{{ restaurant[0].facilityAddress }}"></div>
     <script>
         function geocodeAddress(geocoder, resultsMap) {

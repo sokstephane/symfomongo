@@ -4,11 +4,10 @@
 {% block body %}
     {% include 'default/navbar.html.twig' %}
     <div class="jumbotron" style="background: linear-gradient(to left, #3F1CCB, #4872AE 50%, #BF5858 75%);color:white;">
-        <h1 class="display-4">Welcome !</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <h1 class="display-4">Bienvenue sur Restau Like !</h1>
+        <p class="lead">Les meilleurs restaurants et leurs adresses sont disponibles ici !</p>
         <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        <p>Allez voir les dernières infos en scrollant vers le bas !</p>
     </div>
     <div class="container">
         <h4>Les 6 restaurants les mieux notés de LA </h4>
@@ -17,7 +16,7 @@
                 <ul class="grid cs-style-1">
                     <li>
                         <figure>
-                            <img src="/build/img/1.png" alt="" style="border-radius:2%;">
+                            <img src="/build/img/{{ random(17) }}.jpg" alt="Image Restau" style="border-radius:2%;width:300px;height:200px">
                             <figcaption style="z-index:2">
                                 <h3 class="truncate">{{ restaurant.facilityName }}, {{ restaurant.facilityCity }}</h3>
                                 <span>{{ restaurant.score }}, {{ restaurant.grade }}</span>
@@ -31,6 +30,11 @@
                     </li>
                 </ul>
             {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h4 style="text-align:center;position:relative">Voir tous les restaurants</h4>
+            </div>
         </div>
     </div>
 {% endblock %}
