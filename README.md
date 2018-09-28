@@ -1,11 +1,12 @@
 # symfomongo
+## Nom : Gomez Nicolas, Sok Stéphane, Sabir Idrissi Ayoub
 
-Prérequis pour le projet
-=================
+## Prérequis pour le projet
+
 **PHP 7.2**
 **Mongo**
 
-## Installation
+## Installation
 
 Ouvrir un terminal :
 -cd path/to/project
